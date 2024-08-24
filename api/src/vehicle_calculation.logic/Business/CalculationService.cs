@@ -1,14 +1,21 @@
-﻿using Microsoft.Extensions.Logging;
-using vehicle_calculation.common.Action;
+﻿using vehicle_calculation.common.Action;
 using vehicle_calculation.common.Enums;
+using vehicle_calculation.common.ErrorHandling;
 using vehicle_calculation.logic.interfaces.Business;
 using vehicle_calculation.logic.models.Vehicle;
 
 namespace vehicle_calculation.logic.Business
 {
-    public class CalculationService(ILogger<CalculationService> logger) : ICalculationService
+    public class CalculationService : ICalculationService
     {
-        private readonly ILogger<CalculationService> _logger = logger;
+        private readonly ILogManager _logger;
+
+        public CalculationService(ILogManager logger)
+        {
+            _logger = logger;
+            _logger.SetLogType(typeof(CalculationService));
+        }
+
         public ValueTask<DataResult<VehicleCalculationServiceModel>> CalculateAsync(VehicleServiceModel model, CancellationToken token = default)
         {
             var calculation = new VehicleCalculationServiceModel(model.BasePrice, model.VehicleType);
@@ -27,8 +34,7 @@ namespace vehicle_calculation.logic.Business
                     calculation.SpecialFee = model.BasePrice * 0.04m;
                     break;
                 default:
-                    var error = $"Unhandled VehicleTypeEnum for value: {model.VehicleType}";
-                    _logger.LogError(error);
+                    var (_, error) = _logger.LogError($"Unhandled VehicleTypeEnum for value: {model.VehicleType}");
                     response.SetError(error);
                     return ValueTask.FromResult(response);
             }

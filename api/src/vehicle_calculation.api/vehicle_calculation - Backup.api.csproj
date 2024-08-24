@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Dtos\**" />
+    <Compile Remove="Models\**" />
+    <Content Remove="Dtos\**" />
+    <Content Remove="Models\**" />
+    <EmbeddedResource Remove="Dtos\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Dtos\**" />
+    <None Remove="Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\vehicle_calculation.api.models\vehicle_calculation.api.models.csproj" />
+    <ProjectReference Include="..\vehicle_calculation.logic.interfaces\vehicle_calculation.logic.interfaces.csproj" />
+    <ProjectReference Include="..\vehicle_calculation.logic\vehicle_calculation.logic.csproj" />
+    <ProjectReference Include="..\vehicle_calculation.mappings\vehicle_calculation.mappings.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
+  </ItemGroup>
+
+</Project>
