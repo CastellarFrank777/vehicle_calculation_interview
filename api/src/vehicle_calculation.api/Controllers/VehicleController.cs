@@ -33,7 +33,7 @@ namespace vehicle_calculation.api.Controllers
             var validationResult = ValidateRequest(request);
             if (validationResult.IsError)
             {
-                return BadRequest(validationResult.Data);
+                return BadRequest(validationResult.Error);
             }
 
             var serviceModel = request.ToServiceModel();

@@ -1,0 +1,50 @@
+/* Container to center the form on the page */
+.form-container {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+/* Style for the form */
+.calculation-form {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Style for form inputs and select */
+.calculation-form input,
+.calculation-form select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Style for labels */
+.calculation-form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* Style for form groups */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Style for Total Cost */
+h4 {
+  text-align: center;
+  color: #007c00;
+  font-size: 1.25rem;
+  margin-bottom: 0;
+}

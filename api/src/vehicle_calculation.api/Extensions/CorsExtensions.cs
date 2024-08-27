@@ -8,7 +8,7 @@
             var origins = config.GetSection("AllowedOrigins").Get<string[]>();
             services.AddCors(options =>
             {
-                options.AddPolicy("DefaultPolicy",
+                options.AddPolicy(DefaultPolicy,
                     builder =>
                     {
                         builder.WithOrigins(origins!)

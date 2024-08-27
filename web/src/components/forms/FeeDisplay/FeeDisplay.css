@@ -1,0 +1,11 @@
+.fee-display {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.span-lbl {
+  font-weight: bold;
+}
+.span-value {
+  text-align: right;
+}
