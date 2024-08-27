@@ -20,6 +20,17 @@ namespace vehicle_calculation.logic.Business
         {
             var calculation = new VehicleCalculationServiceModel(model.BasePrice, model.VehicleType);
             var response = DataResult<VehicleCalculationServiceModel>.Success(calculation);
+            if (model.BasePrice < 0)
+            {
+                response.SetError($"{nameof(model.BasePrice)} can't be lower than zero");
+                return ValueTask.FromResult(response);
+            }
+
+            if (!Enum.IsDefined(typeof(VehicleTypeEnum), model.VehicleType))
+            {
+                response.SetError($"{nameof(model.VehicleType)} value: {model.VehicleType} is not a valid VehicleTypeEnum.");
+                return ValueTask.FromResult(response);
+            }
 
             // Basic and Special Fee Calculations
             var internalBasicFee = model.BasePrice * 0.10m;

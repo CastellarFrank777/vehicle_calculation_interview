@@ -13,7 +13,7 @@ This web application allows users to calculate the total cost of a vehicle by en
 The application uses environment variables to configure key settings:
 
 - **VITE_VEHICLE_API_BASE_URL**: Set this to the correct backend API URL for your environment.
-- **VITE_DEBOUNCE_DELAY_MS**: Configures the debounce delay (in milliseconds) for API calls to ensure a better experience.
+- **VITE_FORM_DEBOUNCE_DELAY**: Configures the debounce delay (in milliseconds) for API calls to ensure a better experience.
 
 Ensure that these variables are properly set in your `.env` file according to your environment.
 
